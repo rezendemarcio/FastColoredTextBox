@@ -679,14 +679,15 @@ namespace FastColoredTextBoxNS
                     KeywordStyle3 = GrayStyle;
                     break;
                 case Language.SQL:
-                    StringStyle = RedStyle;
-                    CommentStyle = GreenStyle;
-                    NumberStyle = MagentaStyle;
-                    KeywordStyle = BlueBoldStyle;
-                    StatementsStyle = BlueBoldStyle;
-                    FunctionsStyle = MaroonStyle;
-                    VariableStyle = MaroonStyle;
-                    TypesStyle = BrownStyle;
+                    //StringStyle = RedStyle;
+                    //CommentStyle = GreenStyle;
+                    //NumberStyle = MagentaStyle;
+                    //KeywordStyle = BlueBoldStyle;
+                    //StatementsStyle = BlueBoldStyle;
+                    //FunctionsStyle = MaroonStyle;
+                    //VariableStyle = MaroonStyle;
+                    //TypesStyle = BrownStyle;
+                    InitStyleSchemaForSQL();
                     break;
                 case Language.JSON:
                     StringStyle = BrownStyle;
@@ -694,6 +695,37 @@ namespace FastColoredTextBoxNS
                     KeywordStyle = BlueStyle;
                     break;
             }
+        }
+
+        private void InitStyleSchemaForSQL()
+        {
+            Brush stringsBrush = new SolidBrush(Color.FromArgb(241, 250, 140));
+            Brush commentsBrush = new SolidBrush(Color.FromArgb(98, 114, 164));
+            Brush numbersBrush = new SolidBrush(Color.FromArgb(189, 147, 249));
+            Brush keywordsBrush = new SolidBrush(Color.FromArgb(255, 121, 198));
+            Brush statementsBrush = new SolidBrush(Color.FromArgb(255, 121, 198));
+            Brush functionsBrush = new SolidBrush(Color.FromArgb(97, 221, 253));
+            Brush variablesBrush = new SolidBrush(Color.FromArgb(248, 248, 242));
+            Brush typesBrush = new SolidBrush(Color.FromArgb(255, 121, 198));
+
+            Style stringsStyle = new TextStyle(stringsBrush, null, FontStyle.Regular);
+            Style commentsStyle = new TextStyle(commentsBrush, null, FontStyle.Regular);
+            Style numbersStyle = new TextStyle(numbersBrush, null, FontStyle.Regular);
+            Style keywordsStyle = new TextStyle(keywordsBrush, null, FontStyle.Regular);
+            Style statementsStyle = new TextStyle(statementsBrush, null, FontStyle.Regular);
+            Style functionsStyle = new TextStyle(functionsBrush, null, FontStyle.Regular);
+            Style variablesStyle = new TextStyle(variablesBrush, null, FontStyle.Regular);
+            Style typesStyle = new TextStyle(typesBrush, null, FontStyle.Regular);
+
+            StringStyle = stringsStyle;
+            CommentStyle = commentsStyle;
+            NumberStyle = numbersStyle;
+            KeywordStyle = keywordsStyle;
+            StatementsStyle = statementsStyle;
+            FunctionsStyle = functionsStyle;
+            VariableStyle = variablesStyle;
+            TypesStyle = typesStyle;
+            currentTb.ForeColor = Color.FromArgb(235, 248, 242);
         }
 
         /// <summary>
